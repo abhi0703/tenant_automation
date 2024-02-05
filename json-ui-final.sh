@@ -58,23 +58,27 @@ myJson=$(cat <<EOF
 EOF
 )
 
-#echo "$myJson"
-
 
 REPO_URL="https://github.com/abhi0703/tenant_automation.git"
 BRANCH_NAME="main"
-OUTPUT_FILE_PATH="file.json"
+file_path="/tmp/json_file.json"
 
-echo "$myJson" > "$OUTPUT_FILE_PATH"
+# Copy the output file to the repository
+echo "$myJson" > "$file_path"
+cat /tmp/json_file.json
+
+# Configure git account
+git config --global user.email "agowda077@gmail.com"
+git config --global user.name "abhi0703"
 
 # Clone the repository if not already cloned
 git clone $REPO_URL 
 
 # Move to the repository directory
-cd .\tenant_automation\
+cd .\tenant_automation\JSON_Files\
 
-# Copy the output file to the repository
-cp $OUTPUT_FILE_PATH .
+# Copy the generated JSON file to the repository
+cp $file_path .
 
 # Add, commit, and push the changes
 git add .
