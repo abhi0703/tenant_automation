@@ -68,10 +68,10 @@ OUTPUT_FILE_PATH="file.json"
 echo "$myJson" > "$OUTPUT_FILE_PATH"
 
 # Clone the repository if not already cloned
-git clone $REPO_URL /tmp
+git clone $REPO_URL 
 
 # Move to the repository directory
-cd /tmp
+cd .\tenant_automation\
 
 # Copy the output file to the repository
 cp $OUTPUT_FILE_PATH .
@@ -79,4 +79,4 @@ cp $OUTPUT_FILE_PATH .
 # Add, commit, and push the changes
 git add .
 git commit -m "Add output file from Rundeck job"
-git push origin $BRANCH_NAME
+git push -u origin $BRANCH_NAME
